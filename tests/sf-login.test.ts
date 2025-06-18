@@ -18,9 +18,7 @@ test('SF Login', async ({ page }) => {
 
   await page.waitForLoadState();
 
-  await expect(
-    page.locator('//span[@title="Quarterly Performance"]')
-  ).toHaveText('Quarterly Performance');
+  await expect(page.locator("//span[.='Quarterly Performance']")).toHaveText('Quarterly Performance');
   await page.getByRole('button', { name: 'View profile' }).click();
   await page.locator('//a[.="Log Out"]').click();
 });
