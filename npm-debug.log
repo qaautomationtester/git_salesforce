@@ -1,0 +1,356 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\nishanthnayakan\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   '@types/node'
+1 verbose cli ]
+2 info using npm@2.15.12
+3 info using node@v20.5.1
+4 verbose install initial load of C:\Users\nishanthnayakan\Desktop\GitHub_Actions\package.json
+5 warn package.json GitHub_Actions@1.0.0 No description
+6 warn package.json GitHub_Actions@1.0.0 No repository field.
+7 warn package.json GitHub_Actions@1.0.0 No README data
+8 verbose installManyTop reading scoped package data from C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@playwright\test\package.json
+9 verbose readDependencies loading dependencies from C:\Users\nishanthnayakan\Desktop\GitHub_Actions\package.json
+10 silly cache add args [ '@types/node', null ]
+11 verbose cache add spec @types/node
+12 silly cache add parsed spec Result {
+12 silly cache add   raw: '@types/node',
+12 silly cache add   scope: '@types',
+12 silly cache add   name: '@types/node',
+12 silly cache add   rawSpec: '',
+12 silly cache add   spec: 'latest',
+12 silly cache add   type: 'tag'
+12 silly cache add }
+13 silly addNamed @types/node@latest
+14 verbose addNamed "latest" is being treated as a dist-tag for @types/node
+15 info addNameTag [ '@types/node', 'latest' ]
+16 silly mapToRegistry name @types/node
+17 silly mapToRegistry scope (from package name) @types
+18 verbose mapToRegistry no registry URL found in name for scope @types
+19 silly mapToRegistry using default registry
+20 silly mapToRegistry registry https://registry.npmjs.org/
+21 silly mapToRegistry data Result {
+21 silly mapToRegistry   raw: '@types/node',
+21 silly mapToRegistry   scope: '@types',
+21 silly mapToRegistry   name: '@types/node',
+21 silly mapToRegistry   rawSpec: '',
+21 silly mapToRegistry   spec: 'latest',
+21 silly mapToRegistry   type: 'tag'
+21 silly mapToRegistry }
+22 silly mapToRegistry uri https://registry.npmjs.org/@types%2fnode
+23 verbose addNameTag registry:https://registry.npmjs.org/@types%2fnode not in flight; fetching
+24 verbose request uri https://registry.npmjs.org/@types%2fnode
+25 verbose request no auth needed
+26 info attempt registry request try #1 at 1:10:05 PM
+27 verbose request id 69c1c6830bb56386
+28 verbose etag W/"205bf994c3155d2e6dc880c006325a57"
+29 verbose lastModified Mon, 16 Jun 2025 11:03:06 GMT
+30 http request GET https://registry.npmjs.org/@types%2fnode
+31 http 304 https://registry.npmjs.org/@types%2fnode
+32 verbose headers {
+32 verbose headers   date: 'Wed, 18 Jun 2025 07:40:22 GMT',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'cf-ray': '951923631ef5cbcd-MAA',
+32 verbose headers   'cf-cache-status': 'HIT',
+32 verbose headers   'access-control-allow-origin': '*',
+32 verbose headers   age: '4',
+32 verbose headers   'cache-control': 'public, max-age=300',
+32 verbose headers   etag: '"205bf994c3155d2e6dc880c006325a57"',
+32 verbose headers   'last-modified': 'Mon, 16 Jun 2025 11:03:06 GMT',
+32 verbose headers   vary: 'Accept-Encoding',
+32 verbose headers   'set-cookie': [
+32 verbose headers     '_cfuvid=W1kDlrR5C7tl5OEB.wf3jK4akk2Va.ShB6eXo38.BAU-1750232422924-0.0.1.1-604800000; path=/; domain=.npmjs.org; HttpOnly; Secure; SameSite=None'
+32 verbose headers   ],
+32 verbose headers   server: 'cloudflare'
+32 verbose headers }
+33 silly get cb [
+33 silly get   304,
+33 silly get   {
+33 silly get     date: 'Wed, 18 Jun 2025 07:40:22 GMT',
+33 silly get     connection: 'keep-alive',
+33 silly get     'cf-ray': '951923631ef5cbcd-MAA',
+33 silly get     'cf-cache-status': 'HIT',
+33 silly get     'access-control-allow-origin': '*',
+33 silly get     age: '4',
+33 silly get     'cache-control': 'public, max-age=300',
+33 silly get     etag: '"205bf994c3155d2e6dc880c006325a57"',
+33 silly get     'last-modified': 'Mon, 16 Jun 2025 11:03:06 GMT',
+33 silly get     vary: 'Accept-Encoding',
+33 silly get     'set-cookie': [
+33 silly get       '_cfuvid=W1kDlrR5C7tl5OEB.wf3jK4akk2Va.ShB6eXo38.BAU-1750232422924-0.0.1.1-604800000; path=/; domain=.npmjs.org; HttpOnly; Secure; SameSite=None'
+33 silly get     ],
+33 silly get     server: 'cloudflare'
+33 silly get   }
+33 silly get ]
+34 verbose etag https://registry.npmjs.org/@types%2fnode from cache
+35 verbose get saving @types/node to C:\Users\nishanthnayakan\AppData\Local\npm-cache\registry.npmjs.org\_40types_252fnode\.cache.json
+36 verbose correctMkdir C:\Users\nishanthnayakan\AppData\Local\npm-cache correctMkdir not in flight; initializing
+37 silly addNameTag next cb for @types/node with tag latest
+38 silly addNamed @types/node@24.0.3
+39 verbose addNamed "24.0.3" is a plain semver version for @types/node
+40 silly cache afterAdd @types/node@24.0.3
+41 verbose afterAdd C:\Users\nishanthnayakan\AppData\Local\npm-cache\@types\node\24.0.3\package\package.json not in flight; writing
+42 verbose correctMkdir C:\Users\nishanthnayakan\AppData\Local\npm-cache correctMkdir not in flight; initializing
+43 verbose afterAdd C:\Users\nishanthnayakan\AppData\Local\npm-cache\@types\node\24.0.3\package\package.json written
+44 silly install resolved [
+44 silly install resolved   {
+44 silly install resolved     name: '@types/node',
+44 silly install resolved     version: '24.0.3',
+44 silly install resolved     license: 'MIT',
+44 silly install resolved     _id: '@types/node@24.0.3',
+44 silly install resolved     maintainers: [ [Object] ],
+44 silly install resolved     contributors: [
+44 silly install resolved       [Object], [Object], [Object], [Object],
+44 silly install resolved       [Object], [Object], [Object], [Object],
+44 silly install resolved       [Object], [Object], [Object], [Object],
+44 silly install resolved       [Object], [Object], [Object], [Object],
+44 silly install resolved       [Object], [Object], [Object], [Object],
+44 silly install resolved       [Object], [Object], [Object], [Object],
+44 silly install resolved       [Object], [Object], [Object], [Object],
+44 silly install resolved       [Object], [Object], [Object], [Object],
+44 silly install resolved       [Object], [Object], [Object], [Object],
+44 silly install resolved       [Object], [Object], [Object]
+44 silly install resolved     ],
+44 silly install resolved     homepage: 'https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node',
+44 silly install resolved     dist: {
+44 silly install resolved       shasum: 'f935910f3eece3a3a2f8be86b96ba833dc286cab',
+44 silly install resolved       tarball: 'https://registry.npmjs.org/@types/node/-/node-24.0.3.tgz',
+44 silly install resolved       fileCount: 83,
+44 silly install resolved       integrity: 'sha512-R4I/kzCYAdRLzfiCabn9hxWfbuHS573x+r0dJMkkzThEa7pbrcDWK+9zu3e7aBOouf+rQAciqPFMnxwr0aWgKg==',
+44 silly install resolved       signatures: [Array],
+44 silly install resolved       unpackedSize: 2379575
+44 silly install resolved     },
+44 silly install resolved     main: '',
+44 silly install resolved     types: 'index.d.ts',
+44 silly install resolved     scripts: {},
+44 silly install resolved     _npmUser: { name: 'types', email: 'ts-npm-types@microsoft.com' },
+44 silly install resolved     repository: {
+44 silly install resolved       url: 'git+https://github.com/DefinitelyTyped/DefinitelyTyped.git',
+44 silly install resolved       type: 'git',
+44 silly install resolved       directory: 'types/node'
+44 silly install resolved     },
+44 silly install resolved     description: 'TypeScript definitions for node',
+44 silly install resolved     directories: {},
+44 silly install resolved     dependencies: { 'undici-types': '~7.8.0' },
+44 silly install resolved     typesVersions: { '<=5.1': [Object], '<=5.6': [Object], '<=5.7': [Object] },
+44 silly install resolved     _hasShrinkwrap: false,
+44 silly install resolved     peerDependencies: {},
+44 silly install resolved     typeScriptVersion: '5.1',
+44 silly install resolved     _npmOperationalInternal: {
+44 silly install resolved       tmp: 'tmp/node_24.0.3_1750071751078_0.19296329227817455',
+44 silly install resolved       host: 's3://npm-registry-packages-npm-production'
+44 silly install resolved     },
+44 silly install resolved     typesPublisherContentHash: '50346638d9eb4e5a9d98e4739a4c05900502bd5d0a2347843c47ea6fc70a2638',
+44 silly install resolved     _shasum: 'f935910f3eece3a3a2f8be86b96ba833dc286cab',
+44 silly install resolved     _resolved: 'https://registry.npmjs.org/@types/node/-/node-24.0.3.tgz',
+44 silly install resolved     _from: '@types/node@latest',
+44 silly install resolved     bugs: {
+44 silly install resolved       url: 'https://github.com/DefinitelyTyped/DefinitelyTyped/issues'
+44 silly install resolved     },
+44 silly install resolved     readme: 'ERROR: No README data found!'
+44 silly install resolved   }
+44 silly install resolved ]
+45 info install @types/node@24.0.3 into C:\Users\nishanthnayakan\Desktop\GitHub_Actions
+46 info installOne @types/node@24.0.3
+47 verbose installOne of @types/node to C:\Users\nishanthnayakan\Desktop\GitHub_Actions not in flight; installing
+48 verbose correctMkdir C:\Users\nishanthnayakan\AppData\Local\npm-cache\_locks correctMkdir not in flight; initializing
+49 verbose lock using C:\Users\nishanthnayakan\AppData\Local\npm-cache\_locks\types-node-bdf98b9af1ce84bb.lock for C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node
+50 silly install write writing @types/node 24.0.3 to C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node
+51 verbose unbuild node_modules\@types\node
+52 silly gentlyRm C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node is being purged from base C:\Users\nishanthnayakan\Desktop\GitHub_Actions
+53 verbose gentlyRm don't care about contents; nuking C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node
+54 verbose tar unpack C:\Users\nishanthnayakan\AppData\Local\npm-cache\@types\node\24.0.3\package.tgz
+55 verbose tar unpacking to C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node
+56 silly gentlyRm C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node is being purged
+57 verbose gentlyRm don't care about contents; nuking C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node
+58 silly gunzTarPerm modes [ '777', '666' ]
+59 silly gunzTarPerm extractEntry
+60 silly gunzTarPerm modified mode [ '', 493, 511 ]
+61 silly gunzTarPerm extractEntry
+62 silly gunzTarPerm modified mode [ '', 420, 438 ]
+63 silly gunzTarPerm extractEntry
+64 silly gunzTarPerm modified mode [ '', 420, 438 ]
+65 silly gunzTarPerm extractEntry
+66 silly gunzTarPerm modified mode [ '', 493, 511 ]
+67 silly gunzTarPerm extractEntry
+68 silly gunzTarPerm modified mode [ '', 420, 438 ]
+69 silly gunzTarPerm extractEntry
+70 silly gunzTarPerm modified mode [ '', 420, 438 ]
+71 silly gunzTarPerm extractEntry
+72 silly gunzTarPerm modified mode [ '', 420, 438 ]
+73 silly gunzTarPerm extractEntry
+74 silly gunzTarPerm modified mode [ '', 420, 438 ]
+75 silly gunzTarPerm extractEntry
+76 silly gunzTarPerm modified mode [ '', 420, 438 ]
+77 silly gunzTarPerm extractEntry
+78 silly gunzTarPerm modified mode [ '', 420, 438 ]
+79 silly gunzTarPerm extractEntry
+80 silly gunzTarPerm modified mode [ '', 493, 511 ]
+81 silly gunzTarPerm extractEntry
+82 silly gunzTarPerm modified mode [ '', 420, 438 ]
+83 silly gunzTarPerm extractEntry
+84 silly gunzTarPerm modified mode [ '', 420, 438 ]
+85 silly gunzTarPerm extractEntry
+86 silly gunzTarPerm modified mode [ '', 420, 438 ]
+87 silly gunzTarPerm extractEntry
+88 silly gunzTarPerm modified mode [ '', 420, 438 ]
+89 silly gunzTarPerm extractEntry
+90 silly gunzTarPerm modified mode [ '', 420, 438 ]
+91 silly gunzTarPerm extractEntry
+92 silly gunzTarPerm modified mode [ '', 493, 511 ]
+93 silly gunzTarPerm extractEntry
+94 silly gunzTarPerm modified mode [ '', 420, 438 ]
+95 silly gunzTarPerm extractEntry
+96 silly gunzTarPerm modified mode [ '', 420, 438 ]
+97 silly gunzTarPerm extractEntry
+98 silly gunzTarPerm modified mode [ '', 420, 438 ]
+99 silly gunzTarPerm extractEntry
+100 silly gunzTarPerm modified mode [ '', 420, 438 ]
+101 silly gunzTarPerm extractEntry
+102 silly gunzTarPerm modified mode [ '', 493, 511 ]
+103 silly gunzTarPerm extractEntry
+104 silly gunzTarPerm modified mode [ '', 420, 438 ]
+105 silly gunzTarPerm extractEntry
+106 silly gunzTarPerm modified mode [ '', 420, 438 ]
+107 silly gunzTarPerm extractEntry
+108 silly gunzTarPerm modified mode [ '', 420, 438 ]
+109 silly gunzTarPerm extractEntry
+110 silly gunzTarPerm modified mode [ '', 420, 438 ]
+111 silly gunzTarPerm extractEntry
+112 silly gunzTarPerm modified mode [ '', 420, 438 ]
+113 silly gunzTarPerm extractEntry
+114 silly gunzTarPerm modified mode [ '', 420, 438 ]
+115 silly gunzTarPerm extractEntry
+116 silly gunzTarPerm modified mode [ '', 420, 438 ]
+117 silly gunzTarPerm extractEntry
+118 silly gunzTarPerm modified mode [ '', 420, 438 ]
+119 silly gunzTarPerm extractEntry
+120 silly gunzTarPerm modified mode [ '', 420, 438 ]
+121 silly gunzTarPerm extractEntry
+122 silly gunzTarPerm modified mode [ '', 420, 438 ]
+123 silly gunzTarPerm extractEntry
+124 silly gunzTarPerm modified mode [ '', 420, 438 ]
+125 silly gunzTarPerm extractEntry
+126 silly gunzTarPerm modified mode [ '', 420, 438 ]
+127 silly gunzTarPerm extractEntry
+128 silly gunzTarPerm modified mode [ '', 420, 438 ]
+129 silly gunzTarPerm extractEntry
+130 silly gunzTarPerm modified mode [ '', 420, 438 ]
+131 silly gunzTarPerm extractEntry
+132 silly gunzTarPerm modified mode [ '', 420, 438 ]
+133 silly gunzTarPerm extractEntry
+134 silly gunzTarPerm modified mode [ '', 420, 438 ]
+135 silly gunzTarPerm extractEntry
+136 silly gunzTarPerm modified mode [ '', 420, 438 ]
+137 silly gunzTarPerm extractEntry
+138 silly gunzTarPerm modified mode [ '', 493, 511 ]
+139 silly gunzTarPerm extractEntry
+140 silly gunzTarPerm modified mode [ '', 420, 438 ]
+141 silly gunzTarPerm extractEntry
+142 silly gunzTarPerm modified mode [ '', 420, 438 ]
+143 silly gunzTarPerm extractEntry
+144 silly gunzTarPerm modified mode [ '', 420, 438 ]
+145 silly gunzTarPerm extractEntry
+146 silly gunzTarPerm modified mode [ '', 420, 438 ]
+147 silly gunzTarPerm extractEntry
+148 silly gunzTarPerm modified mode [ '', 493, 511 ]
+149 silly gunzTarPerm extractEntry
+150 silly gunzTarPerm modified mode [ '', 420, 438 ]
+151 silly gunzTarPerm extractEntry
+152 silly gunzTarPerm modified mode [ '', 420, 438 ]
+153 silly gunzTarPerm extractEntry
+154 silly gunzTarPerm modified mode [ '', 420, 438 ]
+155 silly gunzTarPerm extractEntry
+156 silly gunzTarPerm modified mode [ '', 493, 511 ]
+157 silly gunzTarPerm extractEntry
+158 silly gunzTarPerm modified mode [ '', 420, 438 ]
+159 silly gunzTarPerm extractEntry
+160 silly gunzTarPerm modified mode [ '', 420, 438 ]
+161 silly gunzTarPerm extractEntry
+162 silly gunzTarPerm modified mode [ '', 420, 438 ]
+163 silly gunzTarPerm extractEntry
+164 silly gunzTarPerm modified mode [ '', 493, 511 ]
+165 silly gunzTarPerm extractEntry
+166 silly gunzTarPerm modified mode [ '', 493, 511 ]
+167 silly gunzTarPerm extractEntry
+168 silly gunzTarPerm modified mode [ '', 493, 511 ]
+169 silly gunzTarPerm extractEntry
+170 silly gunzTarPerm modified mode [ '', 420, 438 ]
+171 silly gunzTarPerm extractEntry
+172 silly gunzTarPerm modified mode [ '', 420, 438 ]
+173 silly gunzTarPerm extractEntry
+174 silly gunzTarPerm modified mode [ '', 420, 438 ]
+175 silly gunzTarPerm extractEntry
+176 silly gunzTarPerm modified mode [ '', 420, 438 ]
+177 silly gunzTarPerm extractEntry
+178 silly gunzTarPerm modified mode [ '', 420, 438 ]
+179 silly gunzTarPerm extractEntry
+180 silly gunzTarPerm modified mode [ '', 420, 438 ]
+181 silly gunzTarPerm extractEntry
+182 silly gunzTarPerm modified mode [ '', 420, 438 ]
+183 silly gunzTarPerm extractEntry
+184 silly gunzTarPerm modified mode [ '', 420, 438 ]
+185 silly gunzTarPerm extractEntry
+186 silly gunzTarPerm modified mode [ '', 420, 438 ]
+187 silly gunzTarPerm extractEntry
+188 silly gunzTarPerm modified mode [ '', 420, 438 ]
+189 silly gunzTarPerm extractEntry
+190 silly gunzTarPerm modified mode [ '', 420, 438 ]
+191 silly gunzTarPerm extractEntry
+192 silly gunzTarPerm modified mode [ '', 420, 438 ]
+193 silly gunzTarPerm extractEntry
+194 silly gunzTarPerm modified mode [ '', 420, 438 ]
+195 silly gunzTarPerm extractEntry
+196 silly gunzTarPerm modified mode [ '', 420, 438 ]
+197 silly gunzTarPerm extractEntry
+198 silly gunzTarPerm modified mode [ '', 420, 438 ]
+199 silly gunzTarPerm extractEntry
+200 silly gunzTarPerm modified mode [ '', 420, 438 ]
+201 silly gunzTarPerm extractEntry
+202 silly gunzTarPerm modified mode [ '', 420, 438 ]
+203 silly gunzTarPerm extractEntry
+204 silly gunzTarPerm modified mode [ '', 493, 511 ]
+205 silly gunzTarPerm extractEntry
+206 silly gunzTarPerm modified mode [ '', 420, 438 ]
+207 silly gunzTarPerm extractEntry
+208 silly gunzTarPerm modified mode [ '', 420, 438 ]
+209 silly gunzTarPerm extractEntry
+210 silly gunzTarPerm modified mode [ '', 493, 511 ]
+211 silly gunzTarPerm extractEntry
+212 silly gunzTarPerm modified mode [ '', 420, 438 ]
+213 silly gunzTarPerm extractEntry
+214 silly gunzTarPerm modified mode [ '', 420, 438 ]
+215 silly gunzTarPerm extractEntry
+216 silly gunzTarPerm modified mode [ '', 493, 511 ]
+217 silly gunzTarPerm extractEntry
+218 silly gunzTarPerm modified mode [ '', 420, 438 ]
+219 silly gunzTarPerm extractEntry
+220 silly gunzTarPerm modified mode [ '', 420, 438 ]
+221 silly gunzTarPerm extractEntry
+222 silly gunzTarPerm modified mode [ '', 420, 438 ]
+223 silly gunzTarPerm extractEntry
+224 silly gunzTarPerm modified mode [ '', 420, 438 ]
+225 verbose unlock done using C:\Users\nishanthnayakan\AppData\Local\npm-cache\_locks\types-node-bdf98b9af1ce84bb.lock for C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node
+226 verbose stack Error: ENOENT: no such file or directory, open 'C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node\package.json'
+227 verbose cwd C:\Users\nishanthnayakan\Desktop\GitHub_Actions
+228 error Windows_NT 10.0.19045
+229 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\nishanthnayakan\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save-dev" "@types/node"
+230 error node v20.5.1
+231 error npm  v2.15.12
+232 error path C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node\package.json
+233 error code ENOTDIR
+234 error errno -4058
+235 error syscall open
+236 error ENOENT: no such file or directory, open 'C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node\package.json'
+237 error If you need help, you may report this error at:
+237 error     <https://github.com/npm/npm/issues>
+238 verbose exit [ -4058, true ]
+239 verbose unbuild node_modules\@types\node
+240 silly gentlyRm C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node is being purged from base C:\Users\nishanthnayakan\Desktop\GitHub_Actions
+241 verbose gentlyRm don't care about contents; nuking C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node
+242 silly vacuum-fs purging C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types\node
+243 silly vacuum-fs removing C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules\@types
+244 silly vacuum-fs quitting because other entries in C:\Users\nishanthnayakan\Desktop\GitHub_Actions\node_modules
