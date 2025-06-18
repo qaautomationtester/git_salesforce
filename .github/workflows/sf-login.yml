@@ -13,8 +13,8 @@ env:
 jobs:
   test:
     env:
-      SWLABS_USERNAME: standard_user
-      SWLABS_PASSWORD: secret_sauce
+      SWLABS_USERNAME: ${{ secrets.SWLABS_USERNAME }}
+      SWLABS_PASSWORD: ${{ secrets.SWLABS_PASSWORD }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     # strategy:
