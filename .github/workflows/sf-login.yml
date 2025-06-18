@@ -12,6 +12,7 @@ env:
   SWLABS_BASE_URL: https://www.saucedemo.com/
 jobs:
   test:
+    environment: testing
     env:
       SWLABS_USERNAME: ${{ secrets.SWLABS_USERNAME }}
       SWLABS_PASSWORD: ${{ secrets.SWLABS_PASSWORD }}
