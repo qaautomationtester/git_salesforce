@@ -1,16 +1,16 @@
 import { Page } from '@playwright/test';
-import { SfLoginPage } from '../pageobjectmodel/sfloginpage';
+import { SwagLabs } from '../pageobjectmodel/swaglabs';
 
 export class POM {
   private page: Page;
-  private sfLoginPage: SfLoginPage;
+  private swaglabs: SwagLabs;
 
   constructor(page: Page) {
     this.page = page;
-    this.sfLoginPage = new SfLoginPage(this.page);
+    this.swaglabs = new SwagLabs(this.page);
   }
 
-  getSfLoginPage(): SfLoginPage {
-    return this.sfLoginPage;
+  getSwagLabs(): SwagLabs {
+    return this.swaglabs;
   }
 }
