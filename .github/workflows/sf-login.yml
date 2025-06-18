@@ -17,9 +17,9 @@ jobs:
       SF_PASSWORD: Nish@nth1#
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    strategy:
-      matrix:
-        shardIndex: [0, 1, 2, 3, 4]  # 5 shards
+    # strategy:
+    #   matrix:
+    #     shardIndex: [0, 1, 2, 3, 4]  # 5 shards
     steps:
     - uses: actions/checkout@v4
 
@@ -33,8 +33,11 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Run Playwright tests (Shard ${{ matrix.shardIndex }})
-      run: npx playwright test --shard=${{ matrix.shardIndex }}/5
+    - name: Run Playwright tests
+      run: npx playwright test
+
+    # - name: Run Playwright tests (Shard ${{ matrix.shardIndex }})
+    #   run: npx playwright test --shard=${{ matrix.shardIndex }}/5
 
     - name: Output Information
       run: |
