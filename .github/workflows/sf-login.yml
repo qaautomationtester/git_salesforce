@@ -2,14 +2,14 @@ name: Salesforce Tests
 
 on:
   push:
-    branches: [main, master]
+    branches: [ main, master ]
   pull_request:
-    branches: [main, master]
-  workflow_dispatch:
-
+    branches: [ main, master ]
+  workflow_dispatch: 
+  # schedule:
+  #   - cron: "30 8 * * 1-5"
 env:
   SWLABS_BASE_URL: https://www.saucedemo.com/
-
 jobs:
   test:
     environment: testing
@@ -18,17 +18,14 @@ jobs:
       SWLABS_PASSWORD: ${{ secrets.SWLABS_PASSWORD }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    strategy:
-      fail-fast: false
-      matrix:
-        shardIndex: [0, 1]
-
+    # strategy:
+    #   matrix:
+    #     shardIndex: [0, 1,]
+        # shardIndex: [0, 1, 2, 3, 4]  # 5 shards
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
+    - uses: actions/setup-node@v4
       with:
         node-version: lts/*
 
@@ -38,34 +35,20 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: "Debug: List all detected Playwright test files"
-      id: filelist
-      run: |
-        echo "Listing test files Playwright will execute:"
-        npx playwright list-files > test-files.txt
-        cat test-files.txt
-        file_count=$(wc -l < test-files.txt)
-        echo "Total test files: $file_count"
-        echo "file_count=$file_count" >> $GITHUB_OUTPUT
+    - name: Run Playwright tests
+      run: npx playwright test
 
-    - name: Run Playwright tests with sharding
-      if: steps.filelist.outputs.file_count >= 2
-      run: |
-        echo "Running tests for shard index ${{ matrix.shardIndex }} of 2"
-        npx playwright test --shard=${{ matrix.shardIndex }}/2
+    # - name: Run Playwright tests (Shard ${{ matrix.shardIndex }})
+    #   run: npx playwright test --shard=${{ matrix.shardIndex }}/2
 
-    - name: Skip test run (not enough test files for sharding)
-      if: steps.filelist.outputs.file_count < 2
-      run: echo "Skipping test run – not enough test files for sharding (need at least 2)."
-
-    - name: Output environment information
+    - name: Output Information
       run: |
         echo "SWLABS_USERNAME: ${{ env.SWLABS_USERNAME }}"
 
-    - name: Upload Playwright Report
-      uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
-        name: playwright-report-${{ matrix.shardIndex }}
+        name: playwright-report
+        # name: playwright-report-${{ matrix.shardIndex }}
         path: playwright-report/
         retention-days: 30
