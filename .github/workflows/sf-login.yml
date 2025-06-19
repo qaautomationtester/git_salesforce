@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shardIndex: [0, 1]  # 2 shards
+        shardIndex: [0, 1]
 
     steps:
     - name: Checkout code
@@ -38,17 +38,27 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Debug - List all test files detected by Playwright
+    - name: "Debug: List all detected Playwright test files"
+      id: filelist
       run: |
-        echo "Detected Playwright test files:"
-        npx playwright list-files || echo "Failed to list files"
+        echo "Listing test files Playwright will execute:"
+        npx playwright list-files > test-files.txt
+        cat test-files.txt
+        file_count=$(wc -l < test-files.txt)
+        echo "Total test files: $file_count"
+        echo "file_count=$file_count" >> $GITHUB_OUTPUT
 
-    - name: Run Playwright tests (Shard ${{ matrix.shardIndex }})
+    - name: Run Playwright tests with sharding
+      if: steps.filelist.outputs.file_count >= 2
       run: |
         echo "Running tests for shard index ${{ matrix.shardIndex }} of 2"
         npx playwright test --shard=${{ matrix.shardIndex }}/2
 
-    - name: Output Environment Information
+    - name: Skip test run (not enough test files for sharding)
+      if: steps.filelist.outputs.file_count < 2
+      run: echo "Skipping test run – not enough test files for sharding (need at least 2)."
+
+    - name: Output environment information
       run: |
         echo "SWLABS_USERNAME: ${{ env.SWLABS_USERNAME }}"
 
