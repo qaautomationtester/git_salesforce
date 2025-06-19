@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright Tests 1
 on:
   push:
     branches: [ main, master ]
@@ -31,7 +31,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests
-      run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      run: npx playwright test --reporter=playwright --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
     - name: Upload playwright report to GitHub Actions Artifacts
       if: ${{ !cancelled() }}
