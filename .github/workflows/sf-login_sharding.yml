@@ -4,8 +4,14 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+env:
+  SWLABS_BASE_URL: https://www.saucedemo.com/
 jobs:
   playwright-tests:
+    environment: testing
+    env:
+      SWLABS_USERNAME: ${{ secrets.SWLABS_USERNAME }}
+      SWLABS_PASSWORD: ${{ secrets.SWLABS_PASSWORD }}
     timeout-minutes: 60
     runs-on: ubuntu-latest
     strategy:
