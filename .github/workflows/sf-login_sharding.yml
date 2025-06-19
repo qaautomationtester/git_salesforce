@@ -4,6 +4,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  workflow_dispatch: 
 env:
   SWLABS_BASE_URL: https://www.saucedemo.com/
 jobs:
@@ -32,10 +33,10 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
-    - name: Upload blob report to GitHub Actions Artifacts
+    - name: Upload playwright report to GitHub Actions Artifacts
       if: ${{ !cancelled() }}
       uses: actions/upload-artifact@v4
       with:
-        name: blob-report-${{ matrix.shardIndex }}
-        path: blob-report
+        name: playwright-report-${{ matrix.shardIndex }}
+        path: playwright-report/
         retention-days: 1
