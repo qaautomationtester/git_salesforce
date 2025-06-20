@@ -37,7 +37,7 @@ test('Login-to-SwagLabs-2', async ({ page }: { page: Page }) => {
   await page.waitForLoadState();
 
   const title = await page.locator('.app_logo').textContent();
-  expect(title).toContain('Swag Labs');
+  expect(title).toContain('Swag Labss');
 
   await SWLABS.clickOnLogout();
 
