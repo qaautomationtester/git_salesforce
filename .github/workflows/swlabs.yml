@@ -91,6 +91,8 @@ jobs:
           curl -sSL -o mailsend-go https://github.com/muquit/mailsend-go/releases/download/v1.0.11/mailsend-go-linux-amd64
           chmod +x mailsend-go
           file mailsend-go  # Optional: Verify it's a valid binary
+      - name: Install dependencies (if needed)
+        run: sudo apt-get install -y curl
       
       - name: Send email via Gmail SMTP
         run: |
