@@ -99,6 +99,8 @@ jobs:
 
     - name: Send failure report via email
       uses: dawidd6/action-send-mail@v3
+      env:
+        REPORT_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       with:
         server_address: smtp.gmail.com
         server_port: 465
@@ -111,10 +113,7 @@ jobs:
         body: |
           <h3>Some Playwright tests failed</h3>
           <p>You can view the full report in GitHub Actions:</p>
-          <p>
-             <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">
-                View Full Report on GitHub
-            </a>
-            </p>
+          <p><a href="${REPORT_URL}">View Full Report on GitHub</a></p>
+            
 
         # App Password qkfi mqiw sszg kawb
