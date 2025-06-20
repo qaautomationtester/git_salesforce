@@ -88,7 +88,7 @@ jobs:
     steps:
       - name: Install mailsend-go
         run: |
-          curl -sL https://github.com/muquit/mailsend-go/releases/download/v1.0.11/mailsend-go-linux-amd64 -o mailsend-go
+          curl -sSL -o mailsend-go https://github.com/muquit/mailsend-go/releases/download/v1.0.11/mailsend-go-linux-amd64
           chmod +x mailsend-go
           file mailsend-go  # Optional: Verify it's a valid binary
       
@@ -111,4 +111,4 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           EMAIL_TO_NOTIFY: ${{ secrets.EMAIL_TO_NOTIFY }}
-      
+          
