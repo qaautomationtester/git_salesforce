@@ -81,36 +81,34 @@ jobs:
         path: playwright-report
         retention-days: 10
 
-  email-notification:
-    if: failure()  # Only send email if something failed
-    needs: [merge-reports]  # Only run after all test jobs complete
+  send-email-report:
+    name: Send Email Report on Failure
+    if: failure()
+    needs: [merge-reports]
     runs-on: ubuntu-latest
+
     steps:
-      - name: Install mailsend-go
-        run: |
-          curl -sL https://github.com/muquit/mailsend-go/releases/latest/download/mailsend-go-linux-amd64 -o mailsend-go
-          chmod +x mailsend-go
-          ls -l mailsend-go
-      - name: Check mailsend-go version
-        run: ./mailsend-go -version
-      
-      - name: Send email via Gmail SMTP
-        run: |
-          ./mailsend-go \
-            -smtp "$SMTP_HOST" \
-            -port "$SMTP_PORT" \
-            -ssl \
-            -auth \
-            -user "$SMTP_USER" \
-            -pass "$SMTP_PASS" \
-            -from "$SMTP_USER" \
-            -to "$EMAIL_TO_NOTIFY" \
-            -sub "❌ SwagLabs Tests Failed in GitHub Actions" \
-            -msg "Hi team,\n\nPlaywright tests have failed in the GitHub Actions workflow.\n\n🔗 View run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\n\nPlease investigate.\n\n-- GitHub Actions"
-        env:
-          SMTP_HOST: ${{ secrets.SMTP_HOST }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASS: ${{ secrets.SMTP_PASS }}
-          EMAIL_TO_NOTIFY: ${{ secrets.EMAIL_TO_NOTIFY }}
-          
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download HTML report from artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: playwright-html-report--attempt-${{ github.run_attempt }}
+        path: playwright-report
+
+    - name: Send failure report via email
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: "❌ Playwright Test Failures - ${{ github.repository }}"
+        to: qaautomationtester24@gmail.com
+        from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
+        html_body: true
+        body: |
+          <h3>Some Playwright tests failed</h3>
+          <p>Please review the attached HTML report.</p>
+        attachments: playwright-report/index.html
