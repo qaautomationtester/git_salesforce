@@ -80,3 +80,34 @@ jobs:
         name: playwright-html-report--attempt-${{ github.run_attempt }}
         path: playwright-report
         retention-days: 10
+
+  email-notification:
+    if: failure()  # Only send email if something failed
+    needs: [merge-reports]  # Only run after all test jobs complete
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install mailsend-go
+        run: |
+          curl -sL https://github.com/muquit/mailsend-go/releases/download/v1.0.11/mailsend-go-linux-amd64 -o mailsend-go
+          chmod +x mailsend-go
+      
+      - name: Send email via Gmail SMTP
+        run: |
+          ./mailsend-go \
+            -smtp "$SMTP_HOST" \
+            -port "$SMTP_PORT" \
+            -ssl \
+            -auth \
+            -user "$SMTP_USER" \
+            -pass "$SMTP_PASS" \
+            -from "$SMTP_USER" \
+            -to "$EMAIL_TO_NOTIFY" \
+            -sub "❌ SwagLabs Tests Failed in GitHub Actions" \
+            -msg "Hi team,\n\nPlaywright tests have failed in the GitHub Actions workflow.\n\n🔗 View run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\n\nBranch: ${{ github.ref_name }}\nCommit: ${{ github.sha }}\n\nPlease investigate.\n\n-- GitHub Actions"
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_TO_NOTIFY: ${{ secrets.EMAIL_TO_NOTIFY }}
+      
