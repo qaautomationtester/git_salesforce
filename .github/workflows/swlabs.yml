@@ -90,6 +90,7 @@ jobs:
         run: |
           curl -sL https://github.com/muquit/mailsend-go/releases/download/v1.0.11/mailsend-go-linux-amd64 -o mailsend-go
           chmod +x mailsend-go
+          file mailsend-go  # Optional: Verify it's a valid binary
       
       - name: Send email via Gmail SMTP
         run: |
