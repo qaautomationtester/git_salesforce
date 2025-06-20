@@ -110,7 +110,11 @@ jobs:
         html_body: true
         body: |
           <h3>Some Playwright tests failed</h3>
-          <p>Please review the attached HTML report.</p>
-        attachments: playwright-report/index.html
+          <p>You can view the full report in GitHub Actions:</p>
+          <p>
+             <a href="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}">
+                View Full Report on GitHub
+            </a>
+            </p>
 
         # App Password qkfi mqiw sszg kawb
