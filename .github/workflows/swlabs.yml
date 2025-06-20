@@ -88,11 +88,11 @@ jobs:
     steps:
       - name: Install mailsend-go
         run: |
-          curl -sSL -o mailsend-go https://github.com/muquit/mailsend-go/releases/download/v1.0.11/mailsend-go-linux-amd64
+          curl -sL https://github.com/muquit/mailsend-go/releases/latest/download/mailsend-go-linux-amd64 -o mailsend-go
           chmod +x mailsend-go
-          file mailsend-go  # Optional: Verify it's a valid binary
-      - name: Install dependencies (if needed)
-        run: sudo apt-get install -y curl
+          ls -l mailsend-go
+      - name: Check mailsend-go version
+        run: ./mailsend-go -version
       
       - name: Send email via Gmail SMTP
         run: |
