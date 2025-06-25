@@ -30,8 +30,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "❌ Playwright Test Failures - ${{ github.repository }}"
-          # to: qaautomationtester24@gmail.com
-          to: nishanthnayakan@suntechnologies.com
+          to: qaautomationtester24@gmail.com
           from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
           html_body: true
           body: |
