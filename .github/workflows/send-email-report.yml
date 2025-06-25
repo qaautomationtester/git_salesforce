@@ -2,6 +2,11 @@ name: Send Email Report on Failure
 
 on:
   workflow_call:
+    secrets:
+      EMAIL_USERNAME:
+        required: true
+      EMAIL_PASSWORD:
+        required: true
 
 jobs:
   send-email:
