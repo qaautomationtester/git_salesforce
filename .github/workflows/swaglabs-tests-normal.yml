@@ -1,4 +1,4 @@
-name: SwagLabs Playwright Tests
+name: SwagLabs Playwright Defalut Tests
 
 on:
   push:
