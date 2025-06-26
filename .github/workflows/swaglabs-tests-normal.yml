@@ -7,8 +7,15 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+env:
+  SWLABS_BASE_URL: https://www.saucedemo.com/
+
 jobs:
   test:
+    environment: testing
+    env:
+      SWLABS_USERNAME: ${{ secrets.SWLABS_USERNAME }}
+      SWLABS_PASSWORD: ${{ secrets.SWLABS_PASSWORD }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
