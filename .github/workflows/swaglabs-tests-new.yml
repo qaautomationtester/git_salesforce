@@ -1,4 +1,4 @@
-name: SwagLabs Playwright Tests
+name: SwagLabs Playwright Tests New
 
 on:
   push:
@@ -31,6 +31,22 @@ jobs:
         with:
           node-version: lts/*
 
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-cache-${{ runner.os }}-
+
+      - name: Cache Playwright browser binaries
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ runner.os }}
+          restore-keys: |
+            playwright-browsers-
+
       - name: Install dependencies
         run: npm ci
 
@@ -60,6 +76,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-cache-${{ runner.os }}-
 
       - name: Install dependencies
         run: npm ci

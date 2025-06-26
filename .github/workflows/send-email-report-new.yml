@@ -1,0 +1,52 @@
+name: Send Email Report on Failure New
+
+on:
+  workflow_call:
+    secrets:
+      EMAIL_USERNAME:
+        required: true
+      EMAIL_PASSWORD:
+        required: true
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Cache npm dependencies (precautionary)
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-cache-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-cache-${{ runner.os }}-
+
+      - name: Download HTML report from artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-html-report--attempt-${{ github.run_attempt }}
+          path: playwright-report
+
+      - name: Send failure report via email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "❌ Playwright Test Failures - ${{ github.repository }}"
+          to: qaautomationtester24@gmail.com
+          from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
+          html_body: true
+          body: |
+            <h3>Some Playwright tests failed</h3>
+            <p>Please review the attached HTML report.</p>
+          attachments: playwright-report/index.html
