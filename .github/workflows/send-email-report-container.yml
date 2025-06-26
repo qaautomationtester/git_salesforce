@@ -1,4 +1,4 @@
-name: Send Email Report on Failure
+name: Send Email Report on Failure Container
 
 on:
   workflow_call:
@@ -12,7 +12,7 @@ jobs:
   send-email:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.44.0-jammy
+      image: mcr.microsoft.com/playwright:v1.53.0-jammy
 
     steps:
       - name: Checkout repository
